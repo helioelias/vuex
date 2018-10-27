@@ -1,7 +1,7 @@
 <script>
 
 import CcUser from './components/users/main'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
 
@@ -14,12 +14,24 @@ export default {
 
         email: 'helioelias@gmail.com',
 
-        level: 'admin-da-desgraca-toda'
+        level: 'admin-da-desgraca-toda',
+
+        city: 'Bragança Paulista',
+
+        state: 'SP'
 
       }
 
       setTimeout(() => {
-        this.$store.commit('CHANGE_USER', payload)
+        
+        
+        this.changeUser(payload)
+        
+        //this.$store.dispatch('changeUser', payload)
+
+        
+        //this.$store.commit('CHANGE_USER', payload)
+
       }, 3000);
 
 
@@ -28,7 +40,20 @@ export default {
   components:{
     CcUser
   },
+
+  methods: {
+
+    ...mapActions(['changeUser'])
+
+  },
   computed: {
+    
+    /*
+      outraCoisa() {
+
+          return 'Mais uma info!'
+
+      },
 
       ...mapState({
         user: state => {
@@ -38,7 +63,7 @@ export default {
         }
       })
 
-    /*
+    
     user() {
         const { name, email } = this.$store.state.user
       return `O usuario logado é ${name} e possui o email ${email}.`
@@ -51,7 +76,7 @@ export default {
 <template>
   <div>
     <h1>Welcome Vue2</h1>
-    <h4>{{ user }}</h4>
+    <h4>{{ user }} {{ outraCoisa }}</h4>
     <hr>
     <cc-user></cc-user>
   </div>

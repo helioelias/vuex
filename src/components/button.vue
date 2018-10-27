@@ -1,4 +1,5 @@
 <script>
+import { mapActions } from 'vuex';
 export default {
 
   methods: {
@@ -11,13 +12,21 @@ export default {
 
         email: 'email@email.com',
 
-        level: 'usuario-raso'
+        level: 'usuario-raso',
+        
+        city: 'Extrema',
+
+        state: 'MG'
 
       }
 
-      this.$store.commit('CHANGE_USER', payload)
+      this.changeUser(payload)
+
+      //this.$store.commit('CHANGE_USER', payload)
 
     },
+
+    ...mapActions(['changeUser'])
   },
 
   computed: {

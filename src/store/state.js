@@ -3,7 +3,9 @@ export default {
   user: {
     name: '',
     email: '',
-    level: ''
+    level: '',
+    city: '',
+    state: ''
   },
   token: ''
 }
